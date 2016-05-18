@@ -18,7 +18,7 @@ typedef enum eventQueue_eventType {EVENT_QUEUE_ERROR, EVENT_KEY_PRESSED, EVENT_K
 
 typedef union eventQueue_eventData
 {
-	layout_keyIndices key;
+	layout__keyIndices key;
 
 } eventQueue_eventData;
 

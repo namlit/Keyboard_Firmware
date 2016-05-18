@@ -46,3 +46,9 @@ void LED_toggle(uint8_t ledNumber)
 	LED_current_status = LED_current_status ^ (0x80 >> ledNumber);
 	LED_send_values_to_shift_register();
 }
+
+void LED_update_current_level(uint8_t level)
+{
+	LED_current_status = (LED_current_status & 0xF8) | (0x07 & level);
+	LED_send_values_to_shift_register();
+}

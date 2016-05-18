@@ -70,14 +70,10 @@ void eventQueue_processEvent(eventQueue_event theEvent)
 	switch (theEvent.type)
 	{
 		case EVENT_KEY_PRESSED:
-			//udi_hid_kbd_down(0x04);
-			//udi_hid_kbd_down(LAYOUT_ALL_KEYS[theEvent.data.key.row][theEvent.data.key.column].level[0].value.keycode);
-			layout_handle_key_press(theEvent.data.key);
+			layout__handle_key_press(theEvent.data.key);
 			break;
 		case EVENT_KEY_RELEASED:
-			//udi_hid_kbd_up(0x04);
-			//udi_hid_kbd_up(LAYOUT_ALL_KEYS[theEvent.data.key.row][theEvent.data.key.column].level[0].value.keycode);
-			layout_handle_key_release(theEvent.data.key);
+			layout__handle_key_release(theEvent.data.key);
 			break;
 		default:
 			errorHandling_reportError(ERROR_UNKNOWN_EVENT_TYPE);

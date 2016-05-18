@@ -50,7 +50,7 @@ int main (void)
 	
 	usb_init();
 	
-	layout_load();
+	layout__load();
 	
 	readKeys_start_key_polling();
 	LED_turn_on(POWER_LED);

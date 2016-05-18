@@ -13,11 +13,13 @@
 
 #define ERROR_LED 0
 #define POWER_LED 1
+#define DEBUG_LED 2
 
 void LED_send_values_to_shift_register(void);
 void LED_turn_on(uint8_t ledNumber);
 void LED_turn_off(uint8_t ledNumber);
 void LED_toggle(uint8_t ledNumber);
 
+void LED_update_current_level(uint8_t level);
 
 #endif /* LEDS_H_ */

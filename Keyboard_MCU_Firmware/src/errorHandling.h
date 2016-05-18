@@ -9,7 +9,7 @@
 #ifndef ERRORHANDLING_H_
 #define ERRORHANDLING_H_
 
-typedef enum errorHandling_errorType {ERROR_EVENT_QUEUE_OVERFLOW, ERROR_EVENT_QUEUE_EMPTY, ERROR_UNKNOWN_EVENT_TYPE
+typedef enum errorHandling_errorType {ERROR_EVENT_QUEUE_OVERFLOW, ERROR_EVENT_QUEUE_EMPTY, ERROR_UNKNOWN_EVENT_TYPE, ERROR_INVALID_KEY_TYPE
 	} errorHandling_errorType;
 
 void errorHandling_reportError(errorHandling_errorType type);
