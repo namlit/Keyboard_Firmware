@@ -194,6 +194,8 @@ void layout__load(void);
 void layout__handle_key_press(layout__keyIndices key);
 void layout__handle_key_release(layout__keyIndices key);
 
+void layout__release_all_keys(void);
+void layout__reprocess_all_pressed_keys(void);
 void layout__updateLevel(void);
 
 void layout__keycode_pressed(uint8_t keycode);

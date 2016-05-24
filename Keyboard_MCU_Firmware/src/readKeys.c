@@ -54,7 +54,7 @@ static void readKeys_poll_keys(void)
 			for(uint8_t row = 0; row < KEYBOARD_NUMBER_OF_ROWS; row++)
 			{
 				if ( (next_keyMatrix_value[column] & (1 << row)) != (current_keyMatrix_Status[column] & (1 << row)) )
-				{	//LED_toggle(column);
+				{
 					eventQueue_event keyEvent;
 					if (next_keyMatrix_value[column] & (1 << row))
 					{

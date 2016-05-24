@@ -10,6 +10,7 @@
 #include "layout.h"
 #include "leds.h"
 #include "errorHandling.h"
+#include "readKeys.h"
 
 layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
 uint8_t layout__computer_modifier_state;
@@ -17,6 +18,8 @@ uint16_t layout__internal_modifier_state;
 uint8_t layout__current_level;
 uint16_t layout__level_modifier_state;
 uint16_t layout__level_lock_state;
+
+bool layout__locking_enabled = true;
 
 void layout__load(void)
 {
@@ -839,16 +842,53 @@ void layout__handle_key_release(layout__keyIndices keyIndices)
 	}
 }
 
+void layout__release_all_keys()
+{
+	for (uint8_t column = 0; column < KEYBOARD_NUMBER_OF_COLUMNS; column++)
+	{
+		for(uint8_t row = 0; row < KEYBOARD_NUMBER_OF_ROWS; row++)
+		{
+			if ( (current_keyMatrix_Status[column] & (1 << row)) )
+			{
+				layout__keyIndices keyIndices = {.column = column, .row = row};
+				layout__handle_key_release(keyIndices);
+			}
+		}
+	}
+}
+
+void layout__reprocess_all_pressed_keys(void)
+{
+	for (uint8_t column = 0; column < KEYBOARD_NUMBER_OF_COLUMNS; column++)
+	{
+		for(uint8_t row = 0; row < KEYBOARD_NUMBER_OF_ROWS; row++)
+		{
+			if ( (current_keyMatrix_Status[column] & (1 << row)) )
+			{
+				layout__keyIndices keyIndices = {.column = column, .row = row};
+				layout__handle_key_press(keyIndices);
+			}	
+		}
+	}
+}
 
 void layout__updateLevel(void)
 {
+	static bool lock_update_level = false;
 	uint8_t locked_level = 0;
 	uint8_t modifier_pressed_level = 0;
+	uint8_t new_level = 0;
+	
+	if (lock_update_level)
+	{
+		return;
+	}
+	
 	uint8_t i = 0;
 	for (i = 0; i < LAYOUT__NUMBER_OF_LEVELS; i++)
 	{
 		if ((layout__level_lock_state & (1 << i)) && !(layout__level_modifier_state & (1 << i)))
-		{
+		{LED_toggle(DEBUG_LED);
 			locked_level = i+1;
 		}
 	}
@@ -861,10 +901,40 @@ void layout__updateLevel(void)
 		}
 	}
 	
-	(modifier_pressed_level == 0) ? (layout__current_level = locked_level) : (layout__current_level = modifier_pressed_level);
+	(modifier_pressed_level == 0) ? (new_level = locked_level) : (new_level = modifier_pressed_level);
+	
+	if (new_level != layout__current_level)
+	{
+		
+		lock_update_level = true;
+		layout__locking_enabled = false;
+		layout__release_all_keys();
+		layout__current_level = new_level;
+		layout__reprocess_all_pressed_keys();
+		layout__locking_enabled = true;
+		lock_update_level = false;
+	}
 	
 	LED_update_current_level(layout__current_level);
 }
+
+
+void layout__lock_level(uint8_t level)
+{
+	if (layout__locking_enabled)
+	{
+		layout__level_lock_state |= (1 << (level-1));
+	}
+}
+
+void layout__release_level_lock(uint8_t level)
+{
+	if (layout__locking_enabled)
+	{
+		layout__level_lock_state &= ~(1 << (level-1));
+	}
+}
+
 
 
 
@@ -918,13 +988,21 @@ void layout__computer_modifier_with_lock_pressed(layout__modifier modifier)
 	
 	if ((modifier.level == layout__current_level) && !(layout__level_lock_state & (1 << (modifier.level-1))))
 	{
-		layout__level_lock_state |= (1 << (modifier.level-1));
-		udi_hid_kbd_modifier_up(modifier.modifier_bitmask); // The other modifier is still pressed down
-		layout__computer_modifier_state &= ~modifier.modifier_bitmask;
+		if (layout__locking_enabled)
+		{
+			layout__lock_level(modifier.level);
+			udi_hid_kbd_modifier_up(modifier.modifier_bitmask); // The other modifier is still pressed down
+			layout__computer_modifier_state &= ~modifier.modifier_bitmask;
+		}
+		
 	}
 	if ((modifier.level != layout__current_level) && (layout__level_lock_state & (1 << (modifier.level-1))))
 	{
-		layout__level_lock_state &= ~(1 << (modifier.level-1));
+		if (layout__locking_enabled)
+		{
+			layout__release_level_lock(modifier.level);
+		}
+		
 	}
 	
 	layout__updateLevel();
@@ -940,11 +1018,19 @@ void layout__internal_modifier_with_lock_pressed(layout__modifier modifier)
 	
 	if ((modifier.level == layout__current_level) && !(layout__level_lock_state & (1 << (modifier.level-1))))
 	{
-		layout__level_lock_state |= (1 << (modifier.level-1));
+		if (layout__locking_enabled)
+		{
+			layout__lock_level(modifier.level);
+		}
+		
 	}
 	if ((modifier.level != layout__current_level) && (layout__level_lock_state & (1 << (modifier.level-1))))
 	{
-		layout__level_lock_state &= ~(1 << (modifier.level-1));
+		if (layout__locking_enabled)
+		{
+			layout__release_level_lock(modifier.level);
+		}
+		
 	}
 	layout__updateLevel();
 }
