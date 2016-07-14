@@ -202,12 +202,13 @@ void layout__load(void)
 	// layout__complete_layout[1][10].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][10].level[4].value.keycode = KEY_;
 	// layout__complete_layout[1][10].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][10].level[5].value.keycode = KEY_;
 
-	// layout__complete_layout[1][11].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[0].value.keycode = KEY_;
-	// layout__complete_layout[1][11].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[1].value.keycode = KEY_;
-	// layout__complete_layout[1][11].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[2].value.keycode = KEY_;
-	// layout__complete_layout[1][11].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[3].value.keycode = KEY_;
-	// layout__complete_layout[1][11].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[4].value.keycode = KEY_;
-	// layout__complete_layout[1][11].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[5].value.keycode = KEY_;
+	layout__complete_layout[1][11].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[0].value.keycode = KEY_NUM_LOCK;
+	layout__complete_layout[1][11].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[1].value.keycode = KEY_NUM_LOCK;
+	layout__complete_layout[1][11].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[2].value.keycode = KEY_NUM_LOCK;
+	layout__complete_layout[1][11].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[3].value.keycode = KEY_NUM_LOCK;
+	layout__complete_layout[1][11].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[4].value.keycode = KEY_NUM_LOCK;
+	layout__complete_layout[1][11].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[5].value.keycode = KEY_NUM_LOCK;
+	layout__complete_layout[1][11].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[1][11].level[6].value.keycode = KEY_NUM_LOCK;
 
 	layout__complete_layout[2][0].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[2][0].level[0].value.keycode = KEY_HEAD;
 	layout__complete_layout[2][0].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[2][0].level[1].value.keycode = KEY_HEAD;
@@ -536,20 +537,21 @@ void layout__load(void)
 	layout__complete_layout[5][4].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][4].level[5].value.keycode = KEY_Z;
 	layout__complete_layout[5][4].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][4].level[6].value.keycode = KEY_Z;
 
-	layout__complete_layout[5][5].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[0].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[0].value.modifier.level = 6;
-	layout__complete_layout[5][5].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[1].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[1].value.modifier.level = 6;
-	layout__complete_layout[5][5].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[2].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[2].value.modifier.level = 6;
-	layout__complete_layout[5][5].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[3].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[3].value.modifier.level = 6;
-	layout__complete_layout[5][5].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[4].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[4].value.modifier.level = 6;
-	layout__complete_layout[5][5].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[5].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[5].value.modifier.level = 6;
-	layout__complete_layout[5][5].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[5][5].level[6].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[5][5].level[6].value.modifier.level = 6;
-
-	// layout__complete_layout[5][6].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[0].value.keycode = KEY_;
-	// layout__complete_layout[5][6].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[1].value.keycode = KEY_;
-	// layout__complete_layout[5][6].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[2].value.keycode = KEY_;
-	// layout__complete_layout[5][6].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[3].value.keycode = KEY_;
-	// layout__complete_layout[5][6].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[4].value.keycode = KEY_;
-	// layout__complete_layout[5][6].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[5].value.keycode = KEY_;
+	layout__complete_layout[5][5].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[0].value.keycode = KEY_TAB;
+	layout__complete_layout[5][5].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[1].value.keycode = KEY_TAB;
+	layout__complete_layout[5][5].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[2].value.keycode = KEY_TAB;
+	layout__complete_layout[5][5].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[3].value.keycode = KEY_TAB;
+	layout__complete_layout[5][5].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[4].value.keycode = KEY_TAB;
+	layout__complete_layout[5][5].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[5].value.keycode = KEY_TAB;
+	layout__complete_layout[5][5].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][5].level[6].value.keycode = KEY_TAB;
+	
+	layout__complete_layout[5][6].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[0].value.keycode = KEY_UP_ARROW;
+	layout__complete_layout[5][6].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[1].value.keycode = KEY_UP_ARROW;
+	layout__complete_layout[5][6].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[2].value.keycode = KEY_UP_ARROW;
+	layout__complete_layout[5][6].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[3].value.keycode = KEY_UP_ARROW;
+	layout__complete_layout[5][6].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[4].value.keycode = KEY_UP_ARROW;
+	layout__complete_layout[5][6].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[5].value.keycode = KEY_UP_ARROW;
+	layout__complete_layout[5][6].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][6].level[6].value.keycode = KEY_UP_ARROW;
 
 	layout__complete_layout[5][7].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][7].level[0].value.keycode = KEY_B;
 	layout__complete_layout[5][7].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][7].level[1].value.keycode = KEY_B;
@@ -630,19 +632,21 @@ void layout__load(void)
 	layout__complete_layout[6][4].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][4].level[5].value.keycode = KEY_ENTER;
 	layout__complete_layout[6][4].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][4].level[6].value.keycode = KEY_ENTER;
 
-	// layout__complete_layout[6][5].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[0].value.keycode = KEY_;
-	// layout__complete_layout[6][5].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[1].value.keycode = KEY_;
-	// layout__complete_layout[6][5].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[2].value.keycode = KEY_;
-	// layout__complete_layout[6][5].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[3].value.keycode = KEY_;
-	// layout__complete_layout[6][5].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[4].value.keycode = KEY_;
-	// layout__complete_layout[6][5].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[5].value.keycode = KEY_;
+	layout__complete_layout[6][5].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[0].value.keycode = KEY_LEFT_ARROW;
+	layout__complete_layout[6][5].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[1].value.keycode = KEY_LEFT_ARROW;
+	layout__complete_layout[6][5].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[2].value.keycode = KEY_LEFT_ARROW;
+	layout__complete_layout[6][5].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[3].value.keycode = KEY_LEFT_ARROW;
+	layout__complete_layout[6][5].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[4].value.keycode = KEY_LEFT_ARROW;
+	layout__complete_layout[6][5].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[5].value.keycode = KEY_LEFT_ARROW;
+	layout__complete_layout[6][5].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][5].level[6].value.keycode = KEY_LEFT_ARROW;
 
-	// layout__complete_layout[6][6].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[0].value.keycode = KEY_;
-	// layout__complete_layout[6][6].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[1].value.keycode = KEY_;
-	// layout__complete_layout[6][6].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[2].value.keycode = KEY_;
-	// layout__complete_layout[6][6].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[3].value.keycode = KEY_;
-	// layout__complete_layout[6][6].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[4].value.keycode = KEY_;
-	// layout__complete_layout[6][6].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[5].value.keycode = KEY_;
+	layout__complete_layout[6][6].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[0].value.keycode = KEY_RIGHT_ARROW;
+	layout__complete_layout[6][6].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[1].value.keycode = KEY_RIGHT_ARROW;
+	layout__complete_layout[6][6].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[2].value.keycode = KEY_RIGHT_ARROW;
+	layout__complete_layout[6][6].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[3].value.keycode = KEY_RIGHT_ARROW;
+	layout__complete_layout[6][6].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[4].value.keycode = KEY_RIGHT_ARROW;
+	layout__complete_layout[6][6].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[5].value.keycode = KEY_RIGHT_ARROW;
+	layout__complete_layout[6][6].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][6].level[6].value.keycode = KEY_RIGHT_ARROW;
 
 	layout__complete_layout[6][7].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][7].level[0].value.keycode = KEY_SPACE;
 	layout__complete_layout[6][7].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][7].level[1].value.keycode = KEY_SPACE;
@@ -675,12 +679,13 @@ void layout__load(void)
 	// layout__complete_layout[6][10].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][10].level[4].value.keycode = KEY_;
 	// layout__complete_layout[6][10].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][10].level[5].value.keycode = KEY_;
 
-	// layout__complete_layout[6][11].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][11].level[0].value.keycode = KEY_;
-	// layout__complete_layout[6][11].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][11].level[1].value.keycode = KEY_;
-	// layout__complete_layout[6][11].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][11].level[2].value.keycode = KEY_;
-	// layout__complete_layout[6][11].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][11].level[3].value.keycode = KEY_;
-	// layout__complete_layout[6][11].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][11].level[4].value.keycode = KEY_;
-	// layout__complete_layout[6][11].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][11].level[5].value.keycode = KEY_;
+	layout__complete_layout[6][11].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[0].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[0].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[1].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[1].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[2].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[2].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[3].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[3].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[4].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[4].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[5].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[5].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[6].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[6].value.modifier.level = 6;
 
 	layout__complete_layout[7][0].level[0].type = LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK; layout__complete_layout[7][0].level[0].value.modifier.level = 4;
 	layout__complete_layout[7][0].level[1].type = LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK; layout__complete_layout[7][0].level[1].value.modifier.level = 4;
@@ -721,12 +726,13 @@ void layout__load(void)
 	layout__complete_layout[7][4].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][4].level[5].value.keycode = KEY_DELETE;
 	layout__complete_layout[7][4].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][4].level[6].value.keycode = KEY_DELETE;
 
-	// layout__complete_layout[7][5].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[0].value.keycode = KEY_;
-	// layout__complete_layout[7][5].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[1].value.keycode = KEY_;
-	// layout__complete_layout[7][5].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[2].value.keycode = KEY_;
-	// layout__complete_layout[7][5].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[3].value.keycode = KEY_;
-	// layout__complete_layout[7][5].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[4].value.keycode = KEY_;
-	// layout__complete_layout[7][5].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[5].value.keycode = KEY_;
+	layout__complete_layout[7][5].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[0].value.keycode = KEY_DOWN_ARROW;
+	layout__complete_layout[7][5].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[1].value.keycode = KEY_DOWN_ARROW;
+	layout__complete_layout[7][5].level[2].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[2].value.keycode = KEY_DOWN_ARROW;
+	layout__complete_layout[7][5].level[3].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[3].value.keycode = KEY_DOWN_ARROW;
+	layout__complete_layout[7][5].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[4].value.keycode = KEY_DOWN_ARROW;
+	layout__complete_layout[7][5].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[5].value.keycode = KEY_DOWN_ARROW;
+	layout__complete_layout[7][5].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][5].level[6].value.keycode = KEY_DOWN_ARROW;
 
 	layout__complete_layout[7][6].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][6].level[0].value.keycode = KEY_DELETE_FORWARD;
 	layout__complete_layout[7][6].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[7][6].level[1].value.keycode = KEY_DELETE_FORWARD;

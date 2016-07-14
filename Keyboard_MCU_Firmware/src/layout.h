@@ -96,6 +96,7 @@
 #define KEY_LEFT_ARROW 0x50
 #define KEY_DOWN_ARROW 0x51
 #define KEY_UP_ARROW 0x52
+#define KEY_NUM_LOCK 0x53
 
 #define KEY_KEYPAD_1 0x59
 #define KEY_KEYPAD_2 0x5A
