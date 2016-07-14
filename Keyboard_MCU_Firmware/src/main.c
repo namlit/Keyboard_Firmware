@@ -35,6 +35,8 @@
 
 
 void usb_init(void);
+void start_debug_timer(void);
+void debug_timer_event(void);
 
 int main (void)
 {
@@ -54,6 +56,7 @@ int main (void)
 	
 	readKeys_start_key_polling();
 	LED_turn_on(POWER_LED);
+	start_debug_timer();
 	
 	while(1)
 	{
@@ -73,4 +76,20 @@ int main (void)
 void usb_init(void)
 {
 	udc_start();
+}
+
+void debug_timer_event()
+{
+	LED_write_binary_number(layout__current_level);
+}
+
+void start_debug_timer()
+{
+	tc_enable(&TCC1);
+	tc_set_overflow_interrupt_callback(&TCC1, debug_timer_event);
+	tc_write_period(&TCC1, 24000);
+	tc_write_period(&TCC1, 0xffff);
+	tc_set_overflow_interrupt_level(&TCC1, TC_INT_LVL_LO);
+	cpu_irq_enable();
+	tc_write_clock_source(&TCC1, TC_CLKSEL_DIV1_gc);
 }

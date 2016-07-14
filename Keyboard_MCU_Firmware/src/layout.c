@@ -7,6 +7,7 @@
 
 #include <asf.h>
 
+#include "eventQueue.h"
 #include "layout.h"
 #include "leds.h"
 #include "errorHandling.h"
@@ -842,6 +843,24 @@ void layout__handle_key_release(layout__keyIndices keyIndices)
 	}
 }
 
+/**
+* Waits some time before reapplying the pressed keys. This avoids resending of keys
+* if they are released shortly after a modifier. If the event queue is not empty the
+* function returns instantly to avoid blocking any new events.
+*/
+void layout__wait_after_level_change()
+{
+	uint32_t systemClock = sysclk_get_cpu_hz();
+	for (uint32_t i = 0; i < (systemClock >> 7); i++)
+	{
+		if (!eventQueue_isEmty())
+		{
+			break; 
+		}
+	}
+}
+
+
 void layout__release_all_keys()
 {
 	for (uint8_t column = 0; column < KEYBOARD_NUMBER_OF_COLUMNS; column++)
@@ -910,12 +929,11 @@ void layout__updateLevel(void)
 		layout__locking_enabled = false;
 		layout__release_all_keys();
 		layout__current_level = new_level;
+		layout__wait_after_level_change();
 		layout__reprocess_all_pressed_keys();
 		layout__locking_enabled = true;
 		lock_update_level = false;
 	}
-	
-	LED_update_current_level(layout__current_level);
 }
 
 

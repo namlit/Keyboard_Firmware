@@ -34,6 +34,7 @@ void eventQueue_pushEvent(eventQueue_event newEvent);
 eventQueue_event eventQueue_popEvent(void);
 bool eventQueue_isEmty(void);
 void eventQueue_processEvent(eventQueue_event);
+uint8_t eventQueue_getCurrentSize(void);
 
 
 #endif /* EVENTQUEUE_H_ */

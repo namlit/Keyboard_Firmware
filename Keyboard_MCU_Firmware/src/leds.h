@@ -20,6 +20,6 @@ void LED_turn_on(uint8_t ledNumber);
 void LED_turn_off(uint8_t ledNumber);
 void LED_toggle(uint8_t ledNumber);
 
-void LED_update_current_level(uint8_t level);
+void LED_write_binary_number(uint8_t number);
 
 #endif /* LEDS_H_ */

@@ -10,6 +10,7 @@
 #include "eventQueue.h"
 #include "errorHandling.h"
 #include "layout.h"
+#include "leds.h"
 
 
 
@@ -17,6 +18,8 @@ eventQueue_event eventQueue[EVENT_QUEUE_MAX_SIZE];
 uint8_t eventQueue_firstElementIndex = 0;
 uint8_t eventQueue_lastElementIndex = 0;
 uint8_t eventQueue_currentSize = 0;
+
+uint8_t eventQueue_iterator = 0;
 
 void eventQueue_pushEvent(eventQueue_event newEvent)
 {
@@ -76,6 +79,11 @@ void eventQueue_processEvent(eventQueue_event theEvent)
 			layout__handle_key_release(theEvent.data.key);
 			break;
 		default:
-			errorHandling_reportError(ERROR_UNKNOWN_EVENT_TYPE);
+			errorHandling_reportError(ERROR_QUEUE_ERROR);
 	}
+}
+
+uint8_t eventQueue_getCurrentSize(void)
+{
+	return eventQueue_currentSize;
 }
