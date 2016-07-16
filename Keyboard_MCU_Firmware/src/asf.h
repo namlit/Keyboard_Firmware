@@ -96,18 +96,33 @@
 // From module: TC - Timer Counter
 #include <tc.h>
 
-// From module: USB Device HID Keyboard (Single Interface Device)
+// From module: USB CDC Protocol
+#include <usb_protocol_cdc.h>
+
+// From module: USB Device CDC (Composite Device)
+#include <udi_cdc.h>
+
+// From module: USB Device CDC Standard I/O (stdio) - AVR implementation
+#include <stdio_usb.h>
+
+// From module: USB Device HID Keyboard (Composite Device)
 #include <udi_hid_kbd.h>
 
 // From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 
+// From module: USB Device Vendor Class (Composite Device)
+#include <udi_vendor.h>
+
 // From module: USB HID Device protocol
 #include <usb_protocol_hid.h>
 
 // From module: USB HID Library (Device)
 #include <udi_hid.h>
+
+// From module: USB Vendor Protocol
+#include <usb_protocol_vendor.h>
 
 // From module: XMEGA compiler driver
 #include <compiler.h>

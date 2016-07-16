@@ -62,6 +62,7 @@ int main (void)
 	{
 		if (!eventQueue_isEmty())
 		{
+			udi_cdc_putc('A');
 			eventQueue_event theEvent = eventQueue_popEvent();
 			eventQueue_processEvent(theEvent);
 		}

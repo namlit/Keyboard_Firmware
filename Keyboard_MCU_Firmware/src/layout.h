@@ -198,7 +198,7 @@ void layout__handle_key_release(layout__keyIndices key);
 void layout__wait_after_level_change(void);
 
 void layout__release_all_keys(void);
-bool layout__is_modifier(row, column);
+bool layout__is_modifier(uint8_t row, uint8_t column);
 void layout__reprocess_pressed_keys(bool process_modifiers);
 void layout__updateLevel(void);
 

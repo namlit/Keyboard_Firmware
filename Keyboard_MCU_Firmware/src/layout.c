@@ -882,7 +882,7 @@ void layout__release_all_keys()
 	}
 }
 
-bool layout__is_modifier(row, column)
+bool layout__is_modifier(uint8_t row, uint8_t column)
 {
 	layout_key_type type = layout__complete_layout[row][column].level[layout__current_level].type;
 	return (type == LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK || 
@@ -925,7 +925,7 @@ void layout__updateLevel(void)
 	for (i = 0; i < LAYOUT__NUMBER_OF_LEVELS; i++)
 	{
 		if ((layout__level_lock_state & (1 << i)) && !(layout__level_modifier_state & (1 << i)))
-		{LED_toggle(DEBUG_LED);
+		{
 			locked_level = i+1;
 		}
 	}
