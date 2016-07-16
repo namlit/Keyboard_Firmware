@@ -882,7 +882,16 @@ void layout__release_all_keys()
 	}
 }
 
-void layout__reprocess_all_pressed_keys(void)
+bool layout__is_modifier(row, column)
+{
+	layout_key_type type = layout__complete_layout[row][column].level[layout__current_level].type;
+	return (type == LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK || 
+			type == LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK ||
+			type == LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK ||
+			type == LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK);
+}
+
+void layout__reprocess_pressed_keys(bool process_modifiers)
 {
 	for (uint8_t column = 0; column < KEYBOARD_NUMBER_OF_COLUMNS; column++)
 	{
@@ -891,7 +900,10 @@ void layout__reprocess_all_pressed_keys(void)
 			if ( (current_keyMatrix_Status[column] & (1 << row)) )
 			{
 				layout__keyIndices keyIndices = {.column = column, .row = row};
-				layout__handle_key_press(keyIndices);
+				if (layout__is_modifier(keyIndices.row, keyIndices.column) == process_modifiers)
+				{
+					layout__handle_key_press(keyIndices);
+				}
 			}	
 		}
 	}
@@ -936,7 +948,8 @@ void layout__updateLevel(void)
 		layout__release_all_keys();
 		layout__current_level = new_level;
 		layout__wait_after_level_change();
-		layout__reprocess_all_pressed_keys();
+		layout__reprocess_pressed_keys(true);  // process modifiers first
+		layout__reprocess_pressed_keys(false); // than process non modifiers
 		layout__locking_enabled = true;
 		lock_update_level = false;
 	}
