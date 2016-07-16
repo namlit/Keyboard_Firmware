@@ -14,7 +14,7 @@
 #define EVENT_QUEUE_MAX_SIZE 10
 
 
-typedef enum eventQueue_eventType {EVENT_QUEUE_ERROR, EVENT_KEY_PRESSED, EVENT_KEY_RELEASED} eventQueue_eventType;
+typedef enum eventQueue_eventType {EVENT_QUEUE_ERROR, EVENT_KEY_PRESSED, EVENT_KEY_RELEASED, EVENT_SERIAL_DATA_AVAILABLE} eventQueue_eventType;
 
 typedef union eventQueue_eventData
 {

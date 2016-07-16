@@ -407,6 +407,21 @@
     <Folder Include="src\config\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\logging.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\logging.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\serial_communication.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\serial_communication.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\setup.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="atmel_devices_cdc.cat">
       <SubType>compile</SubType>
     </None>

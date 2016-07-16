@@ -14,6 +14,8 @@
 #define ERROR_LED 0
 #define POWER_LED 1
 #define DEBUG_LED 2
+#define RECEIVE_LED 3
+#define TRANSMIT_LED 4
 
 void LED_send_values_to_shift_register(void);
 void LED_turn_on(uint8_t ledNumber);

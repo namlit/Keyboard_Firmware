@@ -65,7 +65,7 @@
 
 //! USB Device string definitions (Optional)
 #define  USB_DEVICE_MANUFACTURE_NAME      "Tilman Sinning"
-#define  USB_DEVICE_PRODUCT_NAME          "Neo Keyboard"
+#define  USB_DEVICE_PRODUCT_NAME          "Ergonomic programmable keyboard"
 // #define  USB_DEVICE_SERIAL_NAME           "12...EF" // Disk SN for MSC
 
 /**
@@ -141,7 +141,8 @@
 //! Interface callback definition
 #define  UDI_CDC_ENABLE_EXT(port)             true
 #define  UDI_CDC_DISABLE_EXT(port)
-#define  UDI_CDC_RX_NOTIFY(port)
+#define  UDI_CDC_RX_NOTIFY(port) serial_communication__data_available_interrupt()
+extern void serial_communication__data_available_interrupt(void);
 #define  UDI_CDC_TX_EMPTY_NOTIFY(port)
 #define  UDI_CDC_SET_CODING_EXT(port,cfg)
 #define  UDI_CDC_SET_DTR_EXT(port,set)

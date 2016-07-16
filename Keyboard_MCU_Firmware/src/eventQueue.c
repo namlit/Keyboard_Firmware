@@ -11,6 +11,7 @@
 #include "errorHandling.h"
 #include "layout.h"
 #include "leds.h"
+#include "serial_communication.h"
 
 
 
@@ -77,6 +78,9 @@ void eventQueue_processEvent(eventQueue_event theEvent)
 			break;
 		case EVENT_KEY_RELEASED:
 			layout__handle_key_release(theEvent.data.key);
+			break;
+		case EVENT_SERIAL_DATA_AVAILABLE:
+			serial_communication__read_and_evaluate_data();
 			break;
 		default:
 			errorHandling_reportError(ERROR_QUEUE_ERROR);

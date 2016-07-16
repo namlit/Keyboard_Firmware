@@ -83,6 +83,8 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../src/logging.c \
+../src/serial_communication.c \
 ../src/ASF/common/services/usb/class/cdc/device/udi_cdc.c \
 ../src/ASF/common/services/usb/class/composite/device/udi_composite_desc.c \
 ../src/ASF/common/services/usb/class/vendor/device/udi_vendor.c \
@@ -116,6 +118,8 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+src/logging.o \
+src/serial_communication.o \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.o \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.o \
 src/ASF/common/services/usb/class/vendor/device/udi_vendor.o \
@@ -142,6 +146,8 @@ src/ASF/common/boards/user_board/init.o \
 src/main.o
 
 OBJS_AS_ARGS +=  \
+src/logging.o \
+src/serial_communication.o \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.o \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.o \
 src/ASF/common/services/usb/class/vendor/device/udi_vendor.o \
@@ -168,6 +174,8 @@ src/ASF/common/boards/user_board/init.o \
 src/main.o
 
 C_DEPS +=  \
+src/logging.d \
+src/serial_communication.d \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.d \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.d \
 src/ASF/common/services/usb/class/vendor/device/udi_vendor.d \
@@ -194,6 +202,8 @@ src/ASF/common/boards/user_board/init.d \
 src/main.d
 
 C_DEPS_AS_ARGS +=  \
+src/logging.d \
+src/serial_communication.d \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.d \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.d \
 src/ASF/common/services/usb/class/vendor/device/udi_vendor.d \
@@ -278,6 +288,17 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
+src/%.o: ../src/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Programme\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD -DIOPORT_XMEGA_COMPAT  -I"../common/applications/user_application/user_board/config" -I"../src/ASF/xmega/utils" -I"../src/config" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/common/services/usb" -I"../src/ASF/common/services/usb/class/hid" -I"../src/ASF/common/services/usb/class/hid/device" -I"../src/ASF/common/services/usb/class/hid/device/kbd" -I"../src/ASF/common/services/usb/udc" -I"../src/ASF/xmega/drivers/usb" -I"../src/ASF/xmega/drivers/pmic" -I"../src/ASF/xmega/drivers/tc" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/usb/class/cdc" -I"../src/ASF/common/services/usb/class/cdc/device" -I"../src/ASF/common/services/usb/class/composite/device" -I"../src/ASF/common/services/usb/class/vendor" -I"../src/ASF/common/services/usb/class/vendor/device" -I"../src/ASF/common/utils/stdio/stdio_usb"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atxmega128a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 src/ASF/common/services/usb/class/cdc/device/%.o: ../src/ASF/common/services/usb/class/cdc/device/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
@@ -307,13 +328,6 @@ src/ASF/common/utils/stdio/%.o: ../src/ASF/common/utils/stdio/%.c
 	
 
 src/ASF/common/utils/stdio/stdio_usb/%.o: ../src/ASF/common/utils/stdio/stdio_usb/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Programme\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD -DIOPORT_XMEGA_COMPAT  -I"../common/applications/user_application/user_board/config" -I"../src/ASF/xmega/utils" -I"../src/config" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/common/services/usb" -I"../src/ASF/common/services/usb/class/hid" -I"../src/ASF/common/services/usb/class/hid/device" -I"../src/ASF/common/services/usb/class/hid/device/kbd" -I"../src/ASF/common/services/usb/udc" -I"../src/ASF/xmega/drivers/usb" -I"../src/ASF/xmega/drivers/pmic" -I"../src/ASF/xmega/drivers/tc" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/usb/class/cdc" -I"../src/ASF/common/services/usb/class/cdc/device" -I"../src/ASF/common/services/usb/class/composite/device" -I"../src/ASF/common/services/usb/class/vendor" -I"../src/ASF/common/services/usb/class/vendor/device" -I"../src/ASF/common/utils/stdio/stdio_usb"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atxmega128a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/%.o: ../src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
 	$(QUOTE)C:\Programme\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD -DIOPORT_XMEGA_COMPAT  -I"../common/applications/user_application/user_board/config" -I"../src/ASF/xmega/utils" -I"../src/config" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/common/services/usb" -I"../src/ASF/common/services/usb/class/hid" -I"../src/ASF/common/services/usb/class/hid/device" -I"../src/ASF/common/services/usb/class/hid/device/kbd" -I"../src/ASF/common/services/usb/udc" -I"../src/ASF/xmega/drivers/usb" -I"../src/ASF/xmega/drivers/pmic" -I"../src/ASF/xmega/drivers/tc" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/usb/class/cdc" -I"../src/ASF/common/services/usb/class/cdc/device" -I"../src/ASF/common/services/usb/class/composite/device" -I"../src/ASF/common/services/usb/class/vendor" -I"../src/ASF/common/services/usb/class/vendor/device" -I"../src/ASF/common/utils/stdio/stdio_usb"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atxmega128a4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

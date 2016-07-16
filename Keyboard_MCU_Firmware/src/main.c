@@ -32,6 +32,7 @@
 #include "layout.h"
 #include "leds.h"
 #include "readKeys.h"
+#include "serial_communication.h"
 
 
 void usb_init(void);
@@ -62,7 +63,6 @@ int main (void)
 	{
 		if (!eventQueue_isEmty())
 		{
-			udi_cdc_putc('A');
 			eventQueue_event theEvent = eventQueue_popEvent();
 			eventQueue_processEvent(theEvent);
 		}
