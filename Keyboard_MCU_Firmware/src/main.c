@@ -29,6 +29,7 @@
 
 #include "eventQueue.h"
 #include "errorHandling.h"
+#include "external_eeprom.h"
 #include "layout.h"
 #include "leds.h"
 #include "readKeys.h"
@@ -52,6 +53,7 @@ int main (void)
 	sleepmgr_init();
 	
 	usb_init();
+	ext_eeprom__spi_init();
 	
 	layout__load();
 	

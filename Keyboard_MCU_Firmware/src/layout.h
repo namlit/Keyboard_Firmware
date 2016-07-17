@@ -131,6 +131,7 @@
 
 
 #define LAYOUT__NUMBER_OF_LEVELS 10
+#define LAYOUT__MAX_LENGTH_OF_NAME 0
 
 
 typedef enum layout_key_type

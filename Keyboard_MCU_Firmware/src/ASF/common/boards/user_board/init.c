@@ -50,10 +50,14 @@ void board_init(void)
 	ioport_set_pin_high(KEYBOARD_COLUMN_11_PIN );
 	
 
-	ioport_set_pin_dir(EEPROM_CS_PIN, IOPORT_DIR_INPUT); // Change direction to output, when actually used
-	ioport_set_pin_dir(EEPROM_MOSI_PIN, IOPORT_DIR_INPUT); // Change direction to output, when actually used
-	ioport_set_pin_dir(EEPROM_MISO_PIN, IOPORT_DIR_INPUT); // Change direction to output, when actually used
-	ioport_set_pin_dir(EEPROM_SCK_PIN, IOPORT_DIR_INPUT); // Change direction to output, when actually used
+	ioport_set_pin_dir(EEPROM_CS_PIN, IOPORT_DIR_OUTPUT);
+	ioport_set_pin_dir(EEPROM_MOSI_PIN, IOPORT_DIR_OUTPUT);
+	ioport_set_pin_dir(EEPROM_MISO_PIN, IOPORT_DIR_INPUT);
+	ioport_set_pin_dir(EEPROM_SCK_PIN, IOPORT_DIR_OUTPUT); 
+	
+	ioport_set_pin_high(EEPROM_CS_PIN);
+	ioport_set_pin_high(EEPROM_MOSI_PIN);
+	ioport_set_pin_high(EEPROM_SCK_PIN);
 
 
 	ioport_set_pin_dir(USB_DATA_MINUS_PIN, IOPORT_DIR_INPUT);

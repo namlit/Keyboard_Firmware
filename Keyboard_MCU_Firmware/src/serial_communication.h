@@ -19,6 +19,9 @@ typedef enum serial_communication__request {	SERIAL__GET_FIRMWARE_VERSION,
 } serial_communication__request;
 
 void serial_communication__data_available_interrupt(void);
+uint8_t serial_communication__read_single_byte(void);
+uint16_t serial_communication__read_two_bytes(void);
+uint32_t serial_communication__read_four_bytes(void);
 void serial_communication__read_and_evaluate_data(void);
 void serial_communication__send_char(char character);
 void serial_communication__send_text(char *text, uint8_t max_text_lenght);
