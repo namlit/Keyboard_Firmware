@@ -14,6 +14,7 @@
 #include "readKeys.h"
 
 layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
+uint8_t layout__name[LAYOUT__MAX_LENGTH_OF_NAME];
 uint8_t layout__computer_modifier_state;
 uint16_t layout__internal_modifier_state;
 uint8_t layout__current_level;

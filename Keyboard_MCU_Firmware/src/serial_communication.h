@@ -23,8 +23,11 @@ uint8_t serial_communication__read_single_byte(void);
 uint16_t serial_communication__read_two_bytes(void);
 uint32_t serial_communication__read_four_bytes(void);
 void serial_communication__read_and_evaluate_data(void);
-void serial_communication__send_char(char character);
+void serial_communication__send_single_byte(uint8_t value);
+void serial_communication__send_two_byte(uint16_t value);
+void serial_communication__send_four_byte(uint32_t value);
 void serial_communication__send_text(char *text, uint8_t max_text_lenght);
+void serial_communication__send_data(char *data, uint16_t length);
 
 
 

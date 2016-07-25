@@ -131,7 +131,7 @@
 
 
 #define LAYOUT__NUMBER_OF_LEVELS 10
-#define LAYOUT__MAX_LENGTH_OF_NAME 0
+#define LAYOUT__MAX_LENGTH_OF_NAME 50
 
 
 typedef enum layout_key_type
@@ -186,6 +186,7 @@ typedef struct layout__keyLevels
 } layout__keyLevels;
 
 extern layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
+extern uint8_t layout__name[LAYOUT__MAX_LENGTH_OF_NAME];
 extern uint8_t layout__computer_modifier_state;  /**< Contains the current status of the computer modifiers. Note that only real key presses are stored and no locked levels or modifiers that get send as LAYOUT_TYPE_KEYCODE_WITH_MODIFIER*/
 //extern uint16_t layout__internal_modifier_state;
 extern uint8_t layout__current_level;
