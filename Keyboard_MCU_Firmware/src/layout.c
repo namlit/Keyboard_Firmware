@@ -15,6 +15,7 @@
 
 layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
 uint8_t layout__name[LAYOUT__MAX_LENGTH_OF_NAME];
+bool layout__disable_num_lock = true;
 uint8_t layout__computer_modifier_state;
 uint16_t layout__internal_modifier_state;
 uint8_t layout__current_level;
@@ -1170,4 +1171,28 @@ void layout__internal_modifier_without_lock_released(layout__modifier modifier)
 	}
 	layout__level_modifier_state &= ~(1 << (modifier.level-1));
 	layout__updateLevel();
+}
+
+void layout__change_keyboard_led_callback(uint8_t value)
+{
+	if (value & HID_LED_CAPS_LOCK)
+	{
+	}
+	if (value & HID_LED_COMPOSE)
+	{
+	}
+	if (value & HID_LED_KANA)
+	{
+	}
+	if (!(value & HID_LED_NUM_LOCK))
+	{
+		if (layout__disable_num_lock)
+		{
+			udi_hid_kbd_down(KEY_NUM_LOCK);
+			udi_hid_kbd_up(KEY_NUM_LOCK);
+		}
+	}
+	if (value & HID_LED_SCROLL_LOCK)
+	{
+	}
 }

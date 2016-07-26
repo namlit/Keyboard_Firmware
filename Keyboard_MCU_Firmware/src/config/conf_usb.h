@@ -283,9 +283,9 @@ extern void serial_communication__data_available_interrupt(void);
 // extern bool my_callback_keyboard_enable(void);
 // #define UDI_HID_KBD_DISABLE_EXT() my_callback_keyboard_disable()
 // extern void my_callback_keyboard_disable(void);
-#define  UDI_HID_KBD_CHANGE_LED(value)
-// #define  UDI_HID_KBD_CHANGE_LED(value) my_callback_keyboard_led(value)
-// extern void my_callback_keyboard_led(uint8_t value)
+// #define  UDI_HID_KBD_CHANGE_LED(value)
+#define  UDI_HID_KBD_CHANGE_LED(value) layout__change_keyboard_led_callback(value)
+extern void layout__change_keyboard_led_callback(uint8_t value);
 
 /**
  * USB HID Keyboard low level configuration

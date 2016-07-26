@@ -187,6 +187,7 @@ typedef struct layout__keyLevels
 
 extern layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
 extern uint8_t layout__name[LAYOUT__MAX_LENGTH_OF_NAME];
+extern bool layout__disable_num_lock;
 extern uint8_t layout__computer_modifier_state;  /**< Contains the current status of the computer modifiers. Note that only real key presses are stored and no locked levels or modifiers that get send as LAYOUT_TYPE_KEYCODE_WITH_MODIFIER*/
 //extern uint16_t layout__internal_modifier_state;
 extern uint8_t layout__current_level;
@@ -222,6 +223,8 @@ void layout__computer_modifier_without_lock_released(layout__modifier modifier);
 void layout__computer_modifier_with_lock_released(layout__modifier modifier);
 void layout__internal_modifier_with_lock_released(layout__modifier modifier);
 void layout__internal_modifier_without_lock_released(layout__modifier modifier);
+
+void layout__change_keyboard_led_callback(uint8_t value);
 
 
 #endif /* LAYOUT_H_ */
