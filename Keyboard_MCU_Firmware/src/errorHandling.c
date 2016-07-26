@@ -52,6 +52,9 @@ void error_handling__send_error_text(errorHandling_errorType type)
 		case ERROR_NO_BYTE_AVAILABLE:
 			error_text = "Error: Byte expected but not available\n";
 			break;
+		case ERROR_INVALID_SHIFT_BITMASK:
+			error_text = "Error: Key has type SHIFT but no shift bitmask\n";
+			break;
 	}
 	serial_communication__send_text(error_text, MAX_ERROR_TEXT_LENGTH);
 }

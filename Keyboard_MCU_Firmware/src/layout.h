@@ -139,8 +139,8 @@ typedef enum layout_key_type
 	LAYOUT_TYPE_KEYCODE, /**< Sends a normal keycode to the computer that gets evaluated by the operating system */
 	LAYOUT_TYPE_KEYCODE_WITH_MODIFIER, /**< Sends a keycode and a modifier to the computer that gets evaluated by the operating system */
 	LAYOUT_TYPE_UNICODE, /**< Not supported at the moment */
-	LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK, /**< Modifier like CTLR, SHIFT, ALT, GUI that gets send to the computer and evaluated by the operating system. It can also change the internal level. Pressing two modifiers does not result in a level lock*/
-	LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK, /**< Modifier like CTLR, SHIFT, ALT, GUI that gets send to the computer and evaluated by the operating system. It can also change the internal level. Pressing two modifiers does result in a level lock*/
+	LAYOUT_TYPE_COMPUTER_MODIFIER, /**< Modifier like CTLR, SHIFT, ALT, GUI that gets send to the computer and evaluated by the operating system. It can also change the internal level.*/
+	LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK, /**< Modifier SHIFT, but if both shift keys are pressed at the same time additionally caps lock is send to the computer*/
 	LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK, /**< Modifier that only changes the internal level and does not get send to the computer. Pressing two modifiers for the same level at the same time causes the level to lock. */
 	LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK /**< Modifier that only changes the internal level and does not get send to the computer. Locking by pressing two modifiers is not possible. */
 //	LAYOUT_TYPE_LOCK_UNLOCK_LEVEL /**< Modifier that toggles the lock state of a level */
@@ -188,6 +188,7 @@ typedef struct layout__keyLevels
 extern layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
 extern uint8_t layout__name[LAYOUT__MAX_LENGTH_OF_NAME];
 extern bool layout__disable_num_lock;
+extern uint8_t layout__shift_level;
 extern uint8_t layout__computer_modifier_state;  /**< Contains the current status of the computer modifiers. Note that only real key presses are stored and no locked levels or modifiers that get send as LAYOUT_TYPE_KEYCODE_WITH_MODIFIER*/
 //extern uint16_t layout__internal_modifier_state;
 extern uint8_t layout__current_level;
@@ -205,22 +206,24 @@ bool layout__is_modifier(uint8_t row, uint8_t column);
 void layout__reprocess_pressed_keys(bool process_modifiers);
 void layout__updateLevel(void);
 
+bool layout__is_level_locked(uint8_t level);
 void layout__lock_level(uint8_t level);
 void layout__release_level_lock(uint8_t level);
+void layout__toggle_level_lock(uint8_t level);
 
 void layout__keycode_pressed(uint8_t keycode);
 void layout__keycode_with_modifier_pressed(layout__keycode_with_modifier key);
 void layout__unicode_pressed(uint16_t unicode);
-void layout__computer_modifier_without_lock_pressed(layout__modifier modifier);
-void layout__computer_modifier_with_lock_pressed(layout__modifier modifier);
+void layout__computer_modifier_pressed(layout__modifier modifier);
+void layout__shift_with_caps_lock_pressed(layout__modifier modifier);
 void layout__internal_modifier_with_lock_pressed(layout__modifier modifier);
 void layout__internal_modifier_without_lock_pressed(layout__modifier modifier);
 
 void layout__keycode_released(uint8_t keycode);
 void layout__keycode_with_modifier_released(layout__keycode_with_modifier key);
 void layout__unicode_released(uint16_t unicode);
-void layout__computer_modifier_without_lock_released(layout__modifier modifier);
-void layout__computer_modifier_with_lock_released(layout__modifier modifier);
+void layout__computer_modifier_released(layout__modifier modifier);
+void layout__shift_with_caps_lock_released(layout__modifier modifier);
 void layout__internal_modifier_with_lock_released(layout__modifier modifier);
 void layout__internal_modifier_without_lock_released(layout__modifier modifier);
 

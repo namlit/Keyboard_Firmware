@@ -16,6 +16,7 @@
 layout__keyLevels layout__complete_layout[KEYBOARD_NUMBER_OF_ROWS][KEYBOARD_NUMBER_OF_COLUMNS];
 uint8_t layout__name[LAYOUT__MAX_LENGTH_OF_NAME];
 bool layout__disable_num_lock = true;
+uint8_t layout__shift_level = 1;
 uint8_t layout__computer_modifier_state;
 uint16_t layout__internal_modifier_state;
 uint8_t layout__current_level;
@@ -404,13 +405,13 @@ void layout__load(void)
 	layout__complete_layout[3][11].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[3][11].level[5].value.keycode = KEY_ESZETT;
 	layout__complete_layout[3][11].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[3][11].level[6].value.keycode = KEY_ESZETT;
 
-	layout__complete_layout[4][0].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[0].value.modifier.level = 1;
-	layout__complete_layout[4][0].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[1].value.modifier.level = 1;
-	layout__complete_layout[4][0].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[2].value.modifier.level = 1;
-	layout__complete_layout[4][0].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[3].value.modifier.level = 1;
-	layout__complete_layout[4][0].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[4].value.modifier.level = 1;
-	layout__complete_layout[4][0].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[5].value.modifier.level = 1;
-	layout__complete_layout[4][0].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][0].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[6].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[0].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[0].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[1].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[1].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[2].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[2].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[3].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[3].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[4].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[4].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[5].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[5].value.modifier.level = 1;
+	layout__complete_layout[4][0].level[6].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][0].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_SHIFT_BITMASK; layout__complete_layout[4][0].level[6].value.modifier.level = 1;
 
 	layout__complete_layout[4][1].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[4][1].level[0].value.keycode = KEY_U;
 	layout__complete_layout[4][1].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[4][1].level[1].value.keycode = KEY_U;
@@ -492,13 +493,13 @@ void layout__load(void)
 	layout__complete_layout[4][10].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[4][10].level[5].value.keycode = KEY_D;
 	layout__complete_layout[4][10].level[6].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[4][10].level[6].value.keycode = KEY_D;
 
-	layout__complete_layout[4][11].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[0].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[0].value.modifier.level = 1;
-	layout__complete_layout[4][11].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[1].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[1].value.modifier.level = 1;
-	layout__complete_layout[4][11].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[2].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[2].value.modifier.level = 1;
-	layout__complete_layout[4][11].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[3].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[3].value.modifier.level = 1;
-	layout__complete_layout[4][11].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[4].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[4].value.modifier.level = 1;
-	layout__complete_layout[4][11].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[5].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[5].value.modifier.level = 1;
-	layout__complete_layout[4][11].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK; layout__complete_layout[4][11].level[6].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[6].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[0].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[0].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[0].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[1].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[1].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[1].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[2].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[2].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[2].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[3].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[3].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[3].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[4].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[4].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[4].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[5].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[5].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[5].value.modifier.level = 1;
+	layout__complete_layout[4][11].level[6].type = LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK; layout__complete_layout[4][11].level[6].value.modifier.modifier_bitmask = MODIFIER_RIGHT_SHIFT_BITMASK; layout__complete_layout[4][11].level[6].value.modifier.level = 1;
 
 	// layout__complete_layout[5][0].level[0].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][0].level[0].value.keycode = KEY_;
 	// layout__complete_layout[5][0].level[1].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][0].level[1].value.keycode = KEY_;
@@ -594,29 +595,29 @@ void layout__load(void)
 	// layout__complete_layout[5][11].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][11].level[4].value.keycode = KEY_;
 	// layout__complete_layout[5][11].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[5][11].level[5].value.keycode = KEY_;
 
-	layout__complete_layout[6][0].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[0].value.modifier.level = 6;
-	layout__complete_layout[6][0].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[1].value.modifier.level = 6;
-	layout__complete_layout[6][0].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[2].value.modifier.level = 6;
-	layout__complete_layout[6][0].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[3].value.modifier.level = 6;
-	layout__complete_layout[6][0].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[4].value.modifier.level = 6;
-	layout__complete_layout[6][0].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[5].value.modifier.level = 6;
-	layout__complete_layout[6][0].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][0].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[6].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[0].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[1].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[2].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[3].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[4].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[5].value.modifier.level = 6;
+	layout__complete_layout[6][0].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][0].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_CTRL_BITMASK; layout__complete_layout[6][0].level[6].value.modifier.level = 6;
 
-	layout__complete_layout[6][1].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
-	layout__complete_layout[6][1].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
-	layout__complete_layout[6][1].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
-	layout__complete_layout[6][1].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
-	layout__complete_layout[6][1].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
-	layout__complete_layout[6][1].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
-	layout__complete_layout[6][1].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][1].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
+	layout__complete_layout[6][1].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][1].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_GUI_BITMASK;
 
-	layout__complete_layout[6][2].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[0].value.modifier.level = 6;
-	layout__complete_layout[6][2].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[1].value.modifier.level = 6;
-	layout__complete_layout[6][2].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[2].value.modifier.level = 6;
-	layout__complete_layout[6][2].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[3].value.modifier.level = 6;
-	layout__complete_layout[6][2].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[4].value.modifier.level = 6;
-	layout__complete_layout[6][2].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[5].value.modifier.level = 6;
-	layout__complete_layout[6][2].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][2].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[6].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[0].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[0].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[1].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[1].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[2].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[2].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[3].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[3].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[4].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[4].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[5].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[5].value.modifier.level = 6;
+	layout__complete_layout[6][2].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][2].level[6].value.modifier.modifier_bitmask = MODIFIER_LEFT_ALT_BITMASK; layout__complete_layout[6][2].level[6].value.modifier.level = 6;
 
 	layout__complete_layout[6][3].level[0].type = LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK; layout__complete_layout[6][3].level[0].value.modifier.level = 2;
 	layout__complete_layout[6][3].level[1].type = LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK; layout__complete_layout[6][3].level[1].value.modifier.level = 2;
@@ -681,13 +682,13 @@ void layout__load(void)
 	// layout__complete_layout[6][10].level[4].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][10].level[4].value.keycode = KEY_;
 	// layout__complete_layout[6][10].level[5].type = LAYOUT_TYPE_KEYCODE; layout__complete_layout[6][10].level[5].value.keycode = KEY_;
 
-	layout__complete_layout[6][11].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[0].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[0].value.modifier.level = 6;
-	layout__complete_layout[6][11].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[1].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[1].value.modifier.level = 6;
-	layout__complete_layout[6][11].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[2].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[2].value.modifier.level = 6;
-	layout__complete_layout[6][11].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[3].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[3].value.modifier.level = 6;
-	layout__complete_layout[6][11].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[4].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[4].value.modifier.level = 6;
-	layout__complete_layout[6][11].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[5].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[5].value.modifier.level = 6;
-	layout__complete_layout[6][11].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK; layout__complete_layout[6][11].level[6].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[6].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[0].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[0].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[0].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[1].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[1].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[1].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[2].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[2].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[2].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[3].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[3].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[3].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[4].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[4].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[4].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[5].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[5].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[5].value.modifier.level = 6;
+	layout__complete_layout[6][11].level[6].type = LAYOUT_TYPE_COMPUTER_MODIFIER; layout__complete_layout[6][11].level[6].value.modifier.modifier_bitmask = MODIFIER_RIGHT_CTRL_BITMASK; layout__complete_layout[6][11].level[6].value.modifier.level = 6;
 
 	layout__complete_layout[7][0].level[0].type = LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK; layout__complete_layout[7][0].level[0].value.modifier.level = 4;
 	layout__complete_layout[7][0].level[1].type = LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK; layout__complete_layout[7][0].level[1].value.modifier.level = 4;
@@ -800,11 +801,11 @@ void layout__handle_key_press(layout__keyIndices keyIndices)
 		case LAYOUT_TYPE_UNICODE:
 			layout__unicode_pressed(key.value.unicode);
 			break;
-		case LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK:
-			layout__computer_modifier_without_lock_pressed(key.value.modifier);
+		case LAYOUT_TYPE_COMPUTER_MODIFIER:
+			layout__computer_modifier_pressed(key.value.modifier);
 			break;
-		case LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK:
-			layout__computer_modifier_with_lock_pressed(key.value.modifier);
+		case LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK:
+			layout__shift_with_caps_lock_pressed(key.value.modifier);
 			break;
 		case LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK:
 			layout__internal_modifier_with_lock_pressed(key.value.modifier);
@@ -833,11 +834,11 @@ void layout__handle_key_release(layout__keyIndices keyIndices)
 		case LAYOUT_TYPE_UNICODE:
 			layout__unicode_released(key.value.unicode);
 			break;
-		case LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK:
-			layout__computer_modifier_without_lock_released(key.value.modifier);
+		case LAYOUT_TYPE_COMPUTER_MODIFIER:
+			layout__computer_modifier_released(key.value.modifier);
 			break;
-		case LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK:
-			layout__computer_modifier_with_lock_released(key.value.modifier);
+		case LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK:
+			layout__shift_with_caps_lock_released(key.value.modifier);
 			break;
 		case LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK:
 			layout__internal_modifier_with_lock_released(key.value.modifier);
@@ -887,8 +888,8 @@ void layout__release_all_keys()
 bool layout__is_modifier(uint8_t row, uint8_t column)
 {
 	layout_key_type type = layout__complete_layout[row][column].level[layout__current_level].type;
-	return (type == LAYOUT_TYPE_COMPUTER_MODIFIER_WITHOUT_LOCK || 
-			type == LAYOUT_TYPE_COMPUTER_MODIFIER_WITH_LOCK ||
+	return (type == LAYOUT_TYPE_COMPUTER_MODIFIER || 
+			type == LAYOUT_TYPE_SHIFT_AND_CAPS_LOCK ||
 			type == LAYOUT_TYPE_INTERNAL_MODIFIER_WITH_LOCK ||
 			type == LAYOUT_TYPE_INTERNAL_MODIFIER_WITHOUT_LOCK);
 }
@@ -957,6 +958,10 @@ void layout__updateLevel(void)
 	}
 }
 
+bool layout__is_level_locked(uint8_t level)
+{
+	return layout__level_lock_state & (1 << (level-1));
+}
 
 void layout__lock_level(uint8_t level)
 {
@@ -971,6 +976,18 @@ void layout__release_level_lock(uint8_t level)
 	if (layout__locking_enabled)
 	{
 		layout__level_lock_state &= ~(1 << (level-1));
+	}
+}
+
+void layout__toggle_level_lock(uint8_t level)
+{
+	if (layout__is_level_locked(level))
+	{
+		layout__release_level_lock(level);
+	}
+	else
+	{
+		layout__lock_level(level);
 	}
 }
 
@@ -1013,7 +1030,7 @@ void layout__unicode_pressed(uint16_t unicode)
 	
 }
 
-void layout__computer_modifier_without_lock_pressed(layout__modifier modifier)
+void layout__computer_modifier_pressed(layout__modifier modifier)
 {
 	udi_hid_kbd_modifier_down(modifier.modifier_bitmask);
 	layout__computer_modifier_state |= modifier.modifier_bitmask;
@@ -1024,46 +1041,33 @@ void layout__computer_modifier_without_lock_pressed(layout__modifier modifier)
 	}
 }
 
-void layout__computer_modifier_with_lock_pressed(layout__modifier modifier)
+void layout__shift_with_caps_lock_pressed(layout__modifier modifier)
 {
-	if (modifier.level == 0)
+	if ((modifier.modifier_bitmask !=  MODIFIER_LEFT_SHIFT_BITMASK) && (modifier.modifier_bitmask !=  MODIFIER_RIGHT_SHIFT_BITMASK))
 	{
+		errorHandling_reportError(ERROR_INVALID_SHIFT_BITMASK);
 		return;
 	}
-	if (layout__level_lock_state & (1 << (modifier.level-1)))
+	bool both_shift_keys_pressed = 
+		((layout__computer_modifier_state & MODIFIER_LEFT_SHIFT_BITMASK) && (modifier.modifier_bitmask == MODIFIER_RIGHT_SHIFT_BITMASK)) ||
+		((layout__computer_modifier_state & MODIFIER_RIGHT_SHIFT_BITMASK) && (modifier.modifier_bitmask == MODIFIER_LEFT_SHIFT_BITMASK));
+	
+	udi_hid_kbd_modifier_down(modifier.modifier_bitmask);
+	layout__computer_modifier_state |= modifier.modifier_bitmask;
+	
+	if (both_shift_keys_pressed)
 	{
-		udi_hid_kbd_modifier_up(modifier.modifier_bitmask);
-		layout__computer_modifier_state &= ~modifier.modifier_bitmask;
+		udi_hid_kbd_down(KEY_CAPS_LOCK);
+		// level locking is done in LED Callback to enable compatibility with multiple keyboards
 	}
 	else
 	{
-		udi_hid_kbd_modifier_down(modifier.modifier_bitmask);
-		layout__computer_modifier_state |= modifier.modifier_bitmask;
-	}
-	
-	
-	layout__level_modifier_state |= (1 << (modifier.level-1));
-	
-	if ((modifier.level == layout__current_level) && !(layout__level_lock_state & (1 << (modifier.level-1))))
-	{
-		if (layout__locking_enabled)
+		if(layout__shift_level != 0)
 		{
-			layout__lock_level(modifier.level);
-			udi_hid_kbd_modifier_up(modifier.modifier_bitmask); // The other modifier is still pressed down
-			layout__computer_modifier_state &= ~modifier.modifier_bitmask;
+			layout__level_modifier_state |= (1 << (layout__shift_level-1));
+			layout__updateLevel();
 		}
-		
 	}
-	if ((modifier.level != layout__current_level) && (layout__level_lock_state & (1 << (modifier.level-1))))
-	{
-		if (layout__locking_enabled)
-		{
-			layout__release_level_lock(modifier.level);
-		}
-		
-	}
-	
-	layout__updateLevel();
 }
 
 void layout__internal_modifier_with_lock_pressed(layout__modifier modifier)
@@ -1119,7 +1123,7 @@ void layout__unicode_released(uint16_t unicode)
 	
 }
 
-void layout__computer_modifier_without_lock_released(layout__modifier modifier)
+void layout__computer_modifier_released(layout__modifier modifier)
 {
 	udi_hid_kbd_modifier_up(modifier.modifier_bitmask);
 	layout__computer_modifier_state &= ~modifier.modifier_bitmask;
@@ -1130,27 +1134,32 @@ void layout__computer_modifier_without_lock_released(layout__modifier modifier)
 	}
 }
 
-void layout__computer_modifier_with_lock_released(layout__modifier modifier)
+void layout__shift_with_caps_lock_released(layout__modifier modifier)
 {
-	if (modifier.level == 0)
+	if ((modifier.modifier_bitmask !=  MODIFIER_LEFT_SHIFT_BITMASK) && (modifier.modifier_bitmask !=  MODIFIER_RIGHT_SHIFT_BITMASK))
 	{
+		errorHandling_reportError(ERROR_INVALID_SHIFT_BITMASK);
 		return;
 	}
+	bool both_shift_keys_pressed =
+		((layout__computer_modifier_state & MODIFIER_LEFT_SHIFT_BITMASK) && (modifier.modifier_bitmask == MODIFIER_RIGHT_SHIFT_BITMASK)) ||
+		((layout__computer_modifier_state & MODIFIER_RIGHT_SHIFT_BITMASK) && (modifier.modifier_bitmask == MODIFIER_LEFT_SHIFT_BITMASK));
 	
-	if (layout__level_lock_state & (1 << (modifier.level-1)))
+	udi_hid_kbd_modifier_up(modifier.modifier_bitmask);
+	layout__computer_modifier_state &= ~modifier.modifier_bitmask;
+	
+	if (both_shift_keys_pressed)
 	{
-		udi_hid_kbd_modifier_down(modifier.modifier_bitmask);
-		layout__computer_modifier_state |= modifier.modifier_bitmask;
+		udi_hid_kbd_up(KEY_CAPS_LOCK);
 	}
 	else
 	{
-		udi_hid_kbd_modifier_up(modifier.modifier_bitmask);
-		layout__computer_modifier_state &= ~modifier.modifier_bitmask;
+		if(layout__shift_level != 0)
+		{
+			layout__level_modifier_state &= ~(1 << (layout__shift_level-1));
+			layout__updateLevel();
+		}
 	}
-	
-	layout__level_modifier_state &= ~(1 << (modifier.level-1));
-	
-	layout__updateLevel();
 }
 
 void layout__internal_modifier_with_lock_released(layout__modifier modifier)
@@ -1177,6 +1186,13 @@ void layout__change_keyboard_led_callback(uint8_t value)
 {
 	if (value & HID_LED_CAPS_LOCK)
 	{
+		layout__lock_level(layout__shift_level);
+		layout__updateLevel();
+	}
+	else
+	{
+		layout__release_level_lock(layout__shift_level);
+		layout__updateLevel();
 	}
 	if (value & HID_LED_COMPOSE)
 	{
