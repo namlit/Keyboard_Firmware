@@ -13,7 +13,7 @@
 #include "setup.h"
 
 
-void logging__send_log_text(logging__message message)
+void logging__send_log_message(logging__message message)
 {
 	if (!ENABLE_LOG_SENDING)
 	{
@@ -30,4 +30,13 @@ void logging__send_log_text(logging__message message)
 		
 	}
 	serial_communication__send_text(log_text, MAX_LOG_TEXT_LENGTH);
+}
+
+void logging__send_log_text(uint8_t *text, uint8_t max_length)
+{
+	if (!ENABLE_LOG_SENDING)
+	{
+		return;
+	}
+	serial_communication__send_text(text, max_length);
 }

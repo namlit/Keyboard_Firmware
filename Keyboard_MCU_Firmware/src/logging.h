@@ -14,7 +14,8 @@
 typedef enum logging__message {LOG__UNKNOWN_SERIAL_REQUEST
 } logging__message;
 
-void logging__send_log_text(logging__message message);
+void logging__send_log_message(logging__message message);
+void logging__send_log_text(uint8_t *text, uint8_t max_length);
 
 
 

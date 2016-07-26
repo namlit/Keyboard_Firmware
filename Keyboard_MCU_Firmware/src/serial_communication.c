@@ -121,7 +121,7 @@ void serial_communication__read_and_evaluate_data(void)
 				//spi_deselect_device(&SPIC, &ext_eeprom__spi_device_conf);;
 				break;
 			default:
-				logging__send_log_text(LOG__UNKNOWN_SERIAL_REQUEST);
+				logging__send_log_message(LOG__UNKNOWN_SERIAL_REQUEST);
 		}
 	}
 	LED_turn_off(RECEIVE_LED);
