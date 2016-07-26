@@ -83,12 +83,10 @@ void readKeys_start_key_polling(void)
 	tc_enable(&TCC0);
 	tc_set_overflow_interrupt_callback(&TCC0, readKeys_poll_keys);
 	//tc_set_wgm(&TCC0, TC_WG_NORMAL);
-	tc_write_period(&TCC0, 24000);
-	tc_write_period(&TCC0, 0xffff);
+	tc_write_period(&TCC0, 48000);
 	tc_set_overflow_interrupt_level(&TCC0, TC_INT_LVL_LO);
 	cpu_irq_enable();
 	tc_write_clock_source(&TCC0, TC_CLKSEL_DIV1_gc);
-	//tc_write_clock_source(&TCC0, TC_CLKSEL_DIV1024_gc);
 }
 
 void readKeys_stop_key_polling(void)

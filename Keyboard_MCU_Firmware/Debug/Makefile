@@ -90,6 +90,7 @@ C_SRCS +=  \
 ../src/ASF/xmega/drivers/spi/spi.c \
 ../src/external_eeprom.c \
 ../src/logging.c \
+../src/readKeys.c \
 ../src/serial_communication.c \
 ../src/ASF/common/services/usb/class/cdc/device/udi_cdc.c \
 ../src/ASF/common/services/usb/class/composite/device/udi_composite_desc.c \
@@ -104,7 +105,6 @@ C_SRCS +=  \
 ../src/ASF/common/services/usb/udc/udc.c \
 ../src/ASF/xmega/drivers/tc/tc.c \
 ../src/leds.c \
-../src/readKeys.c \
 ../src/ASF/xmega/drivers/usb/usb_device.c \
 ../src/ASF/common/services/usb/class/hid/device/udi_hid.c \
 ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.c \
@@ -128,6 +128,7 @@ src/ASF/common/services/spi/xmega_spi/spi_master.o \
 src/ASF/xmega/drivers/spi/spi.o \
 src/external_eeprom.o \
 src/logging.o \
+src/readKeys.o \
 src/serial_communication.o \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.o \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.o \
@@ -142,7 +143,6 @@ src/ASF/common/services/usb/class/hid/device/kbd/udi_hid_kbd.o \
 src/ASF/common/services/usb/udc/udc.o \
 src/ASF/xmega/drivers/tc/tc.o \
 src/leds.o \
-src/readKeys.o \
 src/ASF/xmega/drivers/usb/usb_device.o \
 src/ASF/common/services/usb/class/hid/device/udi_hid.o \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o \
@@ -159,6 +159,7 @@ src/ASF/common/services/spi/xmega_spi/spi_master.o \
 src/ASF/xmega/drivers/spi/spi.o \
 src/external_eeprom.o \
 src/logging.o \
+src/readKeys.o \
 src/serial_communication.o \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.o \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.o \
@@ -173,7 +174,6 @@ src/ASF/common/services/usb/class/hid/device/kbd/udi_hid_kbd.o \
 src/ASF/common/services/usb/udc/udc.o \
 src/ASF/xmega/drivers/tc/tc.o \
 src/leds.o \
-src/readKeys.o \
 src/ASF/xmega/drivers/usb/usb_device.o \
 src/ASF/common/services/usb/class/hid/device/udi_hid.o \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o \
@@ -190,6 +190,7 @@ src/ASF/common/services/spi/xmega_spi/spi_master.d \
 src/ASF/xmega/drivers/spi/spi.d \
 src/external_eeprom.d \
 src/logging.d \
+src/readKeys.d \
 src/serial_communication.d \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.d \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.d \
@@ -204,7 +205,6 @@ src/ASF/common/services/usb/class/hid/device/kbd/udi_hid_kbd.d \
 src/ASF/common/services/usb/udc/udc.d \
 src/ASF/xmega/drivers/tc/tc.d \
 src/leds.d \
-src/readKeys.d \
 src/ASF/xmega/drivers/usb/usb_device.d \
 src/ASF/common/services/usb/class/hid/device/udi_hid.d \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.d \
@@ -221,6 +221,7 @@ src/ASF/common/services/spi/xmega_spi/spi_master.d \
 src/ASF/xmega/drivers/spi/spi.d \
 src/external_eeprom.d \
 src/logging.d \
+src/readKeys.d \
 src/serial_communication.d \
 src/ASF/common/services/usb/class/cdc/device/udi_cdc.d \
 src/ASF/common/services/usb/class/composite/device/udi_composite_desc.d \
@@ -235,7 +236,6 @@ src/ASF/common/services/usb/class/hid/device/kbd/udi_hid_kbd.d \
 src/ASF/common/services/usb/udc/udc.d \
 src/ASF/xmega/drivers/tc/tc.d \
 src/leds.d \
-src/readKeys.d \
 src/ASF/xmega/drivers/usb/usb_device.d \
 src/ASF/common/services/usb/class/hid/device/udi_hid.d \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.d \

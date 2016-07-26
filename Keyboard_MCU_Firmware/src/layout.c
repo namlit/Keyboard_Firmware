@@ -984,8 +984,27 @@ void layout__keycode_pressed(uint8_t keycode)
 
 void layout__keycode_with_modifier_pressed(layout__keycode_with_modifier key)
 {
-	udi_hid_kbd_modifier_down(key.modifier_bitmask);
-	udi_hid_kbd_down(key.keycode);
+	if (key.modifier_bitmask == 0)
+	{
+		udi_hid_kbd_modifier_up(layout__computer_modifier_state);
+		udi_hid_kbd_down(key.keycode);
+		udi_hid_kbd_up(key.keycode);
+		udi_hid_kbd_modifier_down(layout__computer_modifier_state);
+	}
+	else
+	{
+		udi_hid_kbd_modifier_down(key.modifier_bitmask);
+		udi_hid_kbd_down(key.keycode);
+		while (eventQueue_isEmty())
+			; // This enables the possibility to press keycode+modifier-keys for a longer time
+			  // and at the same time avoids blocking other events and side effects with later
+			  // pressed keys.
+		udi_hid_kbd_up(key.keycode);
+		if (!(layout__computer_modifier_state & key.modifier_bitmask))
+		{
+			udi_hid_kbd_modifier_up(key.modifier_bitmask);
+		}
+	}
 }
 
 void layout__unicode_pressed(uint16_t unicode)
@@ -1091,11 +1110,7 @@ void layout__keycode_released(uint8_t keycode)
 
 void layout__keycode_with_modifier_released(layout__keycode_with_modifier key)
 {
-	udi_hid_kbd_up(key.keycode);
-	if (!(layout__computer_modifier_state & key.modifier_bitmask))
-	{
-		udi_hid_kbd_modifier_up(key.modifier_bitmask);
-	}
+	// nothing to do here, only key press is supported
 }
 
 void layout__unicode_released(uint16_t unicode)

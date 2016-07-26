@@ -460,6 +460,9 @@
     <Compile Include="src\logging.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\readKeys.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\serial_communication.c">
       <SubType>compile</SubType>
     </Compile>
@@ -548,9 +551,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\leds.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\readKeys.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\readKeys.h">
